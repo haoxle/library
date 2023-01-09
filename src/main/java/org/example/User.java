@@ -23,6 +23,9 @@ public class User {
         this.booksOnLoan = booksOnLoan;
     }
 
+    public User() {
+
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -81,7 +84,7 @@ public class User {
     }
     @Override
     public String toString() {
-        return  id + ": name: " + name + " admin:" + admin + " \n";
+        return  id + ": Name: " + name.toUpperCase() + " Admin: " + admin + " \n";
     }
 
 

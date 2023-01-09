@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="project set up">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/CsvToJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LibraryDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/books.csv" afterDir="false" />
+    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="user can now see all the books">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672949939168</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="user can now see all the books">
+      <created>1673288685089</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673288685089</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +138,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="project set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="project set up" />
+    <MESSAGE value="user can now see all the books" />
+    <option name="LAST_COMMIT_MESSAGE" value="user can now see all the books" />
   </component>
 </project>
