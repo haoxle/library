@@ -1,73 +1,75 @@
 package org.example;
 
 public class Book {
-    private int number;
-    private String title;
-    private String author;
-    private String genre;
-    private String subGenre;
-    private String publisher;
+    private int Number;
+    private String Title;
+
+
+    private String Author;
+    private String Genre;
+    private String SubGenre;
+    private String Publisher;
     private boolean onLoan = false;
     private int amountLoaned = 0;
 
 
-    public Book(int number, String title, String author, String genre, String subGenre, String publisher) {
-        this.number = number;
-        this.title = title;
-        this.author = author;
-        this.genre = genre;
-        this.subGenre = subGenre;
-        this.publisher = publisher;
+    public Book(int Number, String Title, String Author, String Genre, String SubGenre, String Publisher) {
+        this.Number = Number;
+        this.Title = Title;
+        this.Author = Author;
+        this.Genre = Genre;
+        this.SubGenre = SubGenre;
+        this.Publisher = Publisher;
     }
 
+
     public int getNumber() {
-        return number;
+        return Number;
     }
 
     public void setNumber(int number) {
-        this.number = number;
+        Number = number;
     }
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        Title = title;
     }
 
     public String getAuthor() {
-        return author;
+        return Author;
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        Author = author;
     }
 
     public String getGenre() {
-        return genre;
+        return Genre;
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        Genre = genre;
     }
 
     public String getSubGenre() {
-        return subGenre;
+        return SubGenre;
     }
 
     public void setSubGenre(String subGenre) {
-        this.subGenre = subGenre;
+        SubGenre = subGenre;
     }
 
     public String getPublisher() {
-        return publisher;
+        return Publisher;
     }
 
     public void setPublisher(String publisher) {
-        this.publisher = publisher;
+        Publisher = publisher;
     }
-
     public boolean isOnLoan() {
         return onLoan;
     }
@@ -86,5 +88,9 @@ public class Book {
 
     public void addAmountLoaned() {
         amountLoaned ++;
+    }
+    @Override
+    public String toString() {
+        return "ID: " + Number + " Title: "+ Title+ " \n";
     }
 }
