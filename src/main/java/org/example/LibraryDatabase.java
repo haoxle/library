@@ -2,6 +2,8 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import org.json.CDL;
 
 
@@ -16,6 +18,7 @@ import java.util.stream.Collectors;
 
 public class LibraryDatabase {
     private static List<Book> allBooks;
+    private static List<User> allUsers;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -31,6 +34,7 @@ public class LibraryDatabase {
         }
     }
 
+    //should move this to users
     public static List<Book> readJson() {
         Type listType = new TypeToken<List<Book>>() {
         }.getType();
@@ -42,7 +46,8 @@ public class LibraryDatabase {
             throw new RuntimeException(e);
         }
         return allBooks;
-
     }
+
+
 
 }
