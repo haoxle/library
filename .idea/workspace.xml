@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="registration option">
+    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="added a get users function, will need to update user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/LibraryDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/LibraryDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/User.java" afterDir="false" />
     </list>
@@ -132,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673303772209</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added a get users function, will need to update user">
+      <created>1673356313322</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673356313322</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,6 +155,7 @@
     <MESSAGE value="project set up" />
     <MESSAGE value="user can now see all the books" />
     <MESSAGE value="registration option" />
-    <option name="LAST_COMMIT_MESSAGE" value="registration option" />
+    <MESSAGE value="added a get users function, will need to update user" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a get users function, will need to update user" />
   </component>
 </project>

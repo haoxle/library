@@ -6,10 +6,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class User {
@@ -20,8 +22,7 @@ public class User {
 
 
     private Book booksOnLoan;
-    private List <Book> listBooks;
-
+    private List<Book> listBooks;
 
 
     public static List<User> getAllUsers() {
@@ -33,7 +34,7 @@ public class User {
     }
 
     private String admin;
-    private static List <User> allUsers;
+    private static List<User> allUsers;
 
 
     public User(int id, String name, String password, String admin) {
@@ -89,13 +90,12 @@ public class User {
 
     @Override
     public String toString() {
-        return   "ID: " +ID  + " Name: " + name.toUpperCase() + " Admin: " + admin + " \n";
+        return "ID: " + ID + " Name: " + name.toUpperCase() + " Admin: " + admin + "\n";
     }
 
 
-
     public void writeToJsonUser(String name, String password, String admin) {
-        ArrayList <Book> borrowedBook = new ArrayList<>();
+        ArrayList<Book> borrowedBook = new ArrayList<>();
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("ID", getUser().size() + 1);
         jsonObject.put("name", name);
@@ -113,11 +113,11 @@ public class User {
             file.write(jsonArray.toJSONString());
             file.close();
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("JSON file created: "+jsonObject);
+        System.out.println("JSON file created: " + jsonObject);
     }
 
     public static List<User> getUser() {
@@ -125,13 +125,37 @@ public class User {
         }.getType();
         try {
             List<User> users = new Gson().fromJson(new FileReader("src/main/resources/users.json"), listType);
-            System.out.println(users.toString().replace(",", ""));
             allUsers = users;
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         return allUsers;
     }
+
+    public void addBookToUser(int id, String b, String name) {
+
+        JSONParser jsonParser = new JSONParser();
+
+
+        try {
+            Object userFile = jsonParser.parse(new FileReader("src/main/resources/users.json"));
+            JSONArray jsonArray = (JSONArray) userFile;
+                JSONObject jsonObject = new JSONObject((Map) jsonArray.get(id - 1));
+                System.out.println(jsonObject);
+                System.out.println(jsonArray.get(id - 1));
+                if (jsonObject.containsValue(name)) {
+                    jsonObject.put("onLoan", b);
+                    jsonArray.add(id - 1, jsonObject);
+                }
+            FileWriter file = new FileWriter("src/main/resources/users.json");
+            file.write(jsonArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
+}
 
 
