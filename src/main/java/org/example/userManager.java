@@ -104,13 +104,5 @@ public class userManager {
             }
         }
     }
-    public void addUser(JSONObject user){
-        User newUser = new User(Math.toIntExact((Long) user.get("id")),(String)user.get("username"),(String) user.get("password"),(Boolean)user.get("isAdmin"),(ArrayList<String>) user.get("booksLoanedOut"));
-        users.add(newUser);
-    }
-    public void printBooksInfomation(){
-        for (Book book: books) {
-            System.out.println(book);
-        }
-    }
+
 }

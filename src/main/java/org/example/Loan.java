@@ -14,14 +14,20 @@ import java.util.Scanner;
 
 public class Loan {
     static Scanner scanner = new Scanner(System.in);
+    private static ArrayList<String> loanedBooks = new ArrayList<>();
 
     public static void loanBook(User currentUser) {
+        checkLoanedBooks();
         System.out.println("Please enter the number of the book you wish to loan");
         String bookNumber = scanner.nextLine();
-        System.out.println(currentUser);
-        System.out.println("Loaned out");
-        updateUserBooks(currentUser, bookNumber);
-        updateLoanTimes(bookNumber);
+        for (int i = 0; i < loanedBooks.size(); i++) {
+            if (!(loanedBooks.get(i).contains(bookNumber))) {
+                updateUserBooks(currentUser, bookNumber);
+                updateLoanTimes(bookNumber);
+                System.out.println("Loaned out");
+            }  else System.out.println("The book is currently on loan, please choose another");
+            break;
+        }
     }
 
 
@@ -68,6 +74,29 @@ public class Loan {
                 }
             }
             FileWriter file = new FileWriter("src/main/resources/stock_data.json");
+            file.write(bookJsonArray.toJSONString());
+            file.flush();
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void checkLoanedBooks() {
+        JSONParser jsonParser = new JSONParser();
+        try {
+            Object bookFile = jsonParser.parse(new FileReader("src/main/resources/users.json"));
+            JSONArray bookJsonArray = (JSONArray) bookFile;
+            for (int i = 0; i < bookJsonArray.size(); i++) {
+                JSONObject bookObj = (JSONObject) bookJsonArray.get(i);
+                loanedBooks.add(bookObj.get("booksLoanedOut").toString().replace("[", "").replace("]", "").trim());
+            }
+            System.out.println( "Books currently on loan: " + loanedBooks);
+            FileWriter file = new FileWriter("src/main/resources/users.json");
             file.write(bookJsonArray.toJSONString());
             file.flush();
             file.close();
