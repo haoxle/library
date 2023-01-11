@@ -1,7 +1,7 @@
 package org.example;
 
 public class Book {
-    private int Number;
+    private String Number;
     private String Title;
 
 
@@ -9,25 +9,24 @@ public class Book {
     private String Genre;
     private String SubGenre;
     private String Publisher;
-    private boolean onLoan = false;
-    private int amountLoaned = 0;
+    private long AmountLoaned = 0;
 
 
-    public Book(int Number, String Title, String Author, String Genre, String SubGenre, String Publisher) {
+    public Book(String Number, String Title, String Author, String Genre, String SubGenre, String Publisher, long AmountLoaned) {
         this.Number = Number;
         this.Title = Title;
         this.Author = Author;
         this.Genre = Genre;
         this.SubGenre = SubGenre;
         this.Publisher = Publisher;
+        this.AmountLoaned = AmountLoaned;
     }
 
-
-    public int getNumber() {
+    public String getNumber() {
         return Number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         Number = number;
     }
 
@@ -70,25 +69,15 @@ public class Book {
     public void setPublisher(String publisher) {
         Publisher = publisher;
     }
-    public boolean isOnLoan() {
-        return onLoan;
+
+    public long getAmountLoaned() {
+        return AmountLoaned;
     }
 
-    public void setOnLoan(boolean onLoan) {
-        this.onLoan = onLoan;
+    public void setAmountLoaned(long amountLoaned) {
+        AmountLoaned = amountLoaned;
     }
 
-    public int getAmountLoaned() {
-        return amountLoaned;
-    }
-
-    public void setAmountLoaned(int amountLoaned) {
-        this.amountLoaned = amountLoaned;
-    }
-
-    public void addAmountLoaned() {
-        amountLoaned ++;
-    }
     @Override
     public String toString() {
         return "ID: " + Number + " Title: "+ Title+ " \n";

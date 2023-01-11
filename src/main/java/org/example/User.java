@@ -16,60 +16,38 @@ import java.util.Map;
 
 public class User {
 
-    private int ID;
-    private String name;
+    private int id;
+    private String username;
     private String password;
+    private ArrayList<String> booksOnLoan;
+    private boolean admin;
 
 
-    private Book booksOnLoan;
-    private List<Book> listBooks;
-
-
-    public static List<User> getAllUsers() {
-        return allUsers;
-    }
-
-    public static void setAllUsers(List<User> allUsers) {
-        User.allUsers = allUsers;
-    }
-
-    private String admin;
-    private static List<User> allUsers;
-
-
-    public User(int id, String name, String password, String admin) {
-        this.ID = id;
-        this.name = name;
+    public User(int id, String username, String password, Boolean admin, ArrayList<String> booksOnLoan) {
+        this.id = id;
+        this.username = username;
         this.password = password;
         this.admin = admin;
+        this.booksOnLoan = booksOnLoan;
     }
 
     public User() {
-
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getId() {
+        return id;
     }
 
-    public String getAdmin() {
-        return admin;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setAdmin(String admin) {
-        this.admin = admin;
+    public String getUsername() {
+        return username;
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getName() {
-        return name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -80,82 +58,35 @@ public class User {
         this.password = password;
     }
 
-    public List<Book> getListBooks() {
-        return listBooks;
+    public ArrayList<String> getBooksOnLoan() {
+        return booksOnLoan;
     }
 
-    public void setListBooks(List<Book> listBooks) {
-        this.listBooks = listBooks;
+    public void setBooksOnLoan(ArrayList<String> booksOnLoan) {
+        this.booksOnLoan = booksOnLoan;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public void returnBook(String bookNumber){
+        this.booksOnLoan.remove(bookNumber);
+    }
+
+    public void addBook(String bookNumber){
+        this.booksOnLoan.add(bookNumber);
     }
 
     @Override
     public String toString() {
-        return "ID: " + ID + " Name: " + name.toUpperCase() + " Admin: " + admin + "\n";
+        return "ID: " + id + " Name: " + username.toUpperCase() + " Admin: " + admin + "\n";
     }
 
-
-    public void writeToJsonUser(String name, String password, String admin) {
-        ArrayList<Book> borrowedBook = new ArrayList<>();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ID", getUser().size() + 1);
-        jsonObject.put("name", name);
-        jsonObject.put("password", password);
-        jsonObject.put("admin", admin);
-        jsonObject.put("onLoan", borrowedBook);
-
-
-        JSONParser jsonParser = new JSONParser();
-        try {
-            Object userFile = jsonParser.parse(new FileReader("src/main/resources/users.json"));
-            JSONArray jsonArray = (JSONArray) userFile;
-            jsonArray.add(jsonObject);
-            FileWriter file = new FileWriter("src/main/resources/users.json");
-            file.write(jsonArray.toJSONString());
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("JSON file created: " + jsonObject);
-    }
-
-    public static List<User> getUser() {
-        Type listType = new TypeToken<List<User>>() {
-        }.getType();
-        try {
-            List<User> users = new Gson().fromJson(new FileReader("src/main/resources/users.json"), listType);
-            allUsers = users;
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return allUsers;
-    }
-
-    public void addBookToUser(int id, String b, String name) {
-
-        JSONParser jsonParser = new JSONParser();
-
-
-        try {
-            Object userFile = jsonParser.parse(new FileReader("src/main/resources/users.json"));
-            JSONArray jsonArray = (JSONArray) userFile;
-                JSONObject jsonObject = new JSONObject((Map) jsonArray.get(id - 1));
-                System.out.println(jsonObject);
-                System.out.println(jsonArray.get(id - 1));
-                if (jsonObject.containsValue(name)) {
-                    jsonObject.put("onLoan", b);
-                    jsonArray.add(id - 1, jsonObject);
-                }
-            FileWriter file = new FileWriter("src/main/resources/users.json");
-            file.write(jsonArray.toJSONString());
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
 
 
