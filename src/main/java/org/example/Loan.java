@@ -119,4 +119,42 @@ public class Loan {
         System.out.println( "Books currently on loan: " + set.toString().replace("[", "").replace("]", "").replace(" ", "").replace("\"", ""));
     };
 
+    public static void returnBook(User currentUser) {
+        System.out.println("Please enter the number of the book you wish to return");
+        String bookNumber = scanner.nextLine();
+        for (int i = 0; i < loanedBooks.size(); i++) {
+            if (loanedBooks.get(i).contains(bookNumber)) {
+                handleReturn(bookNumber, currentUser);
+            }  else System.out.println("The book is currently not on loan, please choose another");
+            break;
+        }
+    }
+
+    public static void handleReturn(String bookNumber, User currentUser) {
+        JSONParser jsonParser = new JSONParser();
+        try {
+            Object userFile = jsonParser.parse(new FileReader("src/main/resources/users.json"));
+            JSONArray userJsonArray = (JSONArray) userFile;
+            for (int i =0; i < userJsonArray.size(); i++){
+                JSONObject userObj = (JSONObject) userJsonArray.get(i);
+                if(userObj.get("username").equals(currentUser.getUsername())) {
+                    ArrayList<String> userBooks = (ArrayList<String>) userObj.get("booksLoanedOut");
+                    userBooks.remove(bookNumber);
+                    userObj.put("booksLoanedOut", userBooks);
+                    userJsonArray.set(i, userObj);
+                    System.out.println("Book has been returned");
+                }
+            }
+            FileWriter file = new FileWriter("src/main/resources/users.json");
+            file.write(userJsonArray.toJSONString());
+            file.flush();
+            file.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+    }
 }

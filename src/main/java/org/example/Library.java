@@ -12,7 +12,6 @@ public class Library {
     User user = new User();
     private static userManager um = new userManager();
     private static Loan loan = new Loan();
-
     public void allBooks() {
          db.readJson();
 
@@ -43,6 +42,9 @@ public class Library {
                 mainMenu();
             case "2":
                 loan.loanBook(um.currentUser);
+                mainMenu();
+            case "3":
+                loan.returnBook(um.currentUser);
                 mainMenu();
             case "4":
                 System.out.println(um.getUser().toString().replace(",", "").replace("[", "").replace("]", "").trim());

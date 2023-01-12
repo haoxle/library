@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="working loan function with updated tracker">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stock_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/users.json" afterDir="false" />
+    <list default="true" id="7dcb9330-2f52-43d7-b77a-ed0ba8af6dc5" name="Changes" comment="printed loan books but it duplicates when you add a book">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Return.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/CsvToJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/CsvToJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Loan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673441503503</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="printed loan books but it duplicates when you add a book">
+      <created>1673531516450</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673531516450</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +176,22 @@
     <MESSAGE value="registration option" />
     <MESSAGE value="added a get users function, will need to update user" />
     <MESSAGE value="working loan function with updated tracker" />
-    <option name="LAST_COMMIT_MESSAGE" value="working loan function with updated tracker" />
+    <MESSAGE value="printed loan books but it duplicates when you add a book" />
+    <option name="LAST_COMMIT_MESSAGE" value="printed loan books but it duplicates when you add a book" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>8</line>
+          <properties class="org.example.Main" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
