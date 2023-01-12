@@ -18,13 +18,13 @@ public class CsvToJson {
         String csvAsString = new BufferedReader(new InputStreamReader(inputStream)).lines().collect(Collectors.joining("\n"));
         String json = CDL.toJSONArray(csvAsString).toString();
         try {
-            Files.write(Path.of("src/main/resources/stock_data.json"), json.getBytes(StandardCharsets.UTF_8));
+            Files.write(Path.of("src/main/resources/stock.json"), json.getBytes(StandardCharsets.UTF_8));
         } catch (IOException e) {
             e.printStackTrace();
         }
         JSONParser jsonParser = new JSONParser();
         try {
-            Object userFile = jsonParser.parse(new FileReader("src/main/resources/stock_data.json"));
+            Object userFile = jsonParser.parse(new FileReader("src/main/resources/stock.json"));
             JSONArray jsonArray = (JSONArray) userFile;
 
             for (int i=0; i < jsonArray.size(); i++){
@@ -32,7 +32,7 @@ public class CsvToJson {
                 bookObj.put("AmountLoaned",0);
             }
 
-            FileWriter file = new FileWriter("src/main/resources/stock_data.json");
+            FileWriter file = new FileWriter("src/main/resources/stock.json");
             file.write(jsonArray.toJSONString());
             file.flush();
             file.close();

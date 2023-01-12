@@ -31,6 +31,7 @@ public class Library {
     }
 
     public void mainMenu() {
+        loan.checkLoanedBooks();
         System.out.println("What would you like to do today?");
         System.out.println("(0) Exit\n(1) See All Books\n(2) Loan a book\n(3) Return a book\n(4) See Users\n(5) See Books Currently Out");
         String choice = scanner.next();
@@ -47,7 +48,7 @@ public class Library {
                 System.out.println(um.getUser().toString().replace(",", "").replace("[", "").replace("]", "").trim());
                 mainMenu();
             case "5":
-               loan.checkLoanedBooks();
+               loan.printLoanedBooks();
                 mainMenu();
             default:
                 System.out.println("Didn't understand input, try again");

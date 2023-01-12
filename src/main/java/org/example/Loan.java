@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 public class Loan {
@@ -17,7 +18,6 @@ public class Loan {
     private static ArrayList<String> loanedBooks = new ArrayList<>();
 
     public static void loanBook(User currentUser) {
-        checkLoanedBooks();
         System.out.println("Please enter the number of the book you wish to loan");
         String bookNumber = scanner.nextLine();
         for (int i = 0; i < loanedBooks.size(); i++) {
@@ -93,9 +93,8 @@ public class Loan {
             JSONArray bookJsonArray = (JSONArray) bookFile;
             for (int i = 0; i < bookJsonArray.size(); i++) {
                 JSONObject bookObj = (JSONObject) bookJsonArray.get(i);
-                loanedBooks.add(bookObj.get("booksLoanedOut").toString().replace("[", "").replace("]", "").trim());
+                loanedBooks.add(bookObj.get("booksLoanedOut").toString());
             }
-            System.out.println( "Books currently on loan: " + loanedBooks);
             FileWriter file = new FileWriter("src/main/resources/users.json");
             file.write(bookJsonArray.toJSONString());
             file.flush();
@@ -107,5 +106,17 @@ public class Loan {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
     }
+    public static void printLoanedBooks() {
+        for (int i = 0; i < loanedBooks.size(); i++)
+            if(loanedBooks.get(i).isEmpty()) {
+                loanedBooks.remove(i);
+            }
+        LinkedHashSet<String> set = new LinkedHashSet<String>();
+        for (int i = 0; i < loanedBooks.size(); i++)
+            set.add(loanedBooks.get(i));
+        System.out.println( "Books currently on loan: " + set.toString().replace("[", "").replace("]", "").replace(" ", "").replace("\"", ""));
+    };
+
 }
